@@ -51,17 +51,17 @@
       <div class="container my-3">
         <h1>Wonder Library</h1>
         <hr>
-        <form>
+        <form id="libraryForm">
             <div class="form-group row">
               <label for="bookName" class="col-sm-2 col-form-label">Nme</label>
               <div class="col-sm-10">
-                <input type="email" class="form-control" id="bookName" placeholder="Book Name">
+                <input class="form-control" id="bookName" placeholder="Book Name">
               </div>
             </div>
             <div class="form-group row">
               <label for="Author" class="col-sm-2 col-form-label">Author</label>
               <div class="col-sm-10">
-                <input type="password" class="form-control" id="author" placeholder="Author">
+                <input class="form-control" id="author" placeholder="Author">
               </div>
             </div>
             <fieldset class="form-group">
@@ -69,7 +69,7 @@
                 <legend class="col-form-label col-sm-2 pt-0">Type</legend>
                 <div class="col-sm-10">
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="type" id="fiction" value="fiction" checked>
+                    <input class="form-check-input" type="radio" name="type" id="fiction" value="fiction">
                     <label class="form-check-label" for="fiction">
                       Ficton
                     </label>
@@ -80,8 +80,8 @@
                       Computer programming
                     </label>
                   </div>
-                  <div class="form-check disabled">
-                    <input class="form-check-input" type="radio" name="type" id="cooking" value="cooking" disabled>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="type" id="cooking" value="cooking">
                     <label class="form-check-label" for="cooking">
                       Cooking
                     </label>
@@ -103,9 +103,9 @@
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Type</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -114,18 +114,6 @@
                     <td>Mark</td>
                     <td>Otto</td>
                     <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
                   </tr>
                 </tbody>
               </table>
