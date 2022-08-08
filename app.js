@@ -11,7 +11,6 @@ function Book(name, author, type) {
 function Display() {}
 
 // add methods to display prototype
-
 Display.prototype.add = function (book) {
   console.log("Adding to UI");
   tableBody = document.getElementById("tableBody");
@@ -22,12 +21,37 @@ Display.prototype.add = function (book) {
                     <td>${book.type}</td>
                   </tr>
                   `;
-    tableBody.innerHTML+=uiString;
+  tableBody.innerHTML += uiString;
 };
 
+//impelment clear function
 Display.prototype.clear = function () {
   let libraryForm = document.getElementById("libraryForm");
   libraryForm.reset();
+};
+
+//impelment clear function
+Display.prototype.validate = function (book) {
+  if (book.name.length < 2 || book.author.length < 2) {
+    return false;
+  } else {
+    return true;
+  }
+};
+
+Display.prototype.show = function (type, displaymessage) {
+  let message = document.getElementById("message");
+  message.innerHTML = `
+    <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+        <strong>Message:</strong> ${displaymessage}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>`;
+    
+  setTimeout(() => {
+    message.innerHTML = "";
+  }, 2000);
 };
 
 // add submit eventlistner to libraryForm
@@ -56,7 +80,15 @@ function libraryFormSubmit(e) {
   console.log(book);
 
   let display = new Display();
-  display.add(book);
-  display.clear();
+
+  if (display.validate(book)) {
+    display.add(book);
+    display.clear();
+    display.show("success", "Your book has been successfully added");
+  } else {
+    //error
+    display.show("danger", "Sorry you cannot add this book");
+  }
+
   e.preventDefault(); // remove reload issue
 }
